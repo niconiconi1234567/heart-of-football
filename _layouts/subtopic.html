@@ -1,0 +1,25 @@
+{% assign hub = site.data.topic_hubs[page.hub_key] %}
+{% assign subtopic = hub.subtopics | where: 'key', page.subtopic_key | first %}
+{% assign entries = site.writings | where: 'hub_key', page.hub_key | where: 'subtopic_key', page.subtopic_key | sort: 'concept_order' %}
+<section class="container page-hero page-hero-narrow">
+  <div class="eyebrow">Subtopic</div>
+  <h1>{{ subtopic.title }}</h1>
+  <div class="page-intro rich-intro">
+    {{ content }}
+  </div>
+</section>
+
+<section class="container content-list-section">
+  {% for item in entries %}
+    <article class="content-entry">
+      {% include metadata.html date=item.date tags=item.tags reading_time=item.reading_time %}
+      <h2><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
+      <p>{{ item.excerpt }}</p>
+      <div class="tag-row">
+        {% for tag in item.tags %}
+          <span class="tag-chip">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </article>
+  {% endfor %}
+</section>

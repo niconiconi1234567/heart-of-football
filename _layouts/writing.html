@@ -1,0 +1,45 @@
+<article class="container writing-layout">
+  <div class="writing-main">
+    <div class="eyebrow">Article</div>
+    <h1>{{ page.title }}</h1>
+    {% include metadata.html date=page.date section=page.section_title tags=page.tags reading_time=page.reading_time %}
+
+    {% if page.excerpt %}
+      <div class="opening-note">{{ page.excerpt }}</div>
+    {% endif %}
+
+    <div class="writing-body" data-toc-source>
+      {{ content }}
+    </div>
+
+    <section class="related-writings">
+      <div class="section-headline">Related Writings</div>
+      <div class="related-list">
+        {% assign related_count = 0 %}
+        {% assign same_subtopic = site.writings | where: 'hub_key', page.hub_key | where: 'subtopic_key', page.subtopic_key | sort: 'date' | reverse %}
+        {% for item in same_subtopic %}
+          {% if item.url != page.url and related_count < 2 %}
+            <a class="related-item" href="{{ item.url | relative_url }}">
+              <div>
+                <div class="related-title">{{ item.title }}</div>
+                <div class="related-date">{{ item.date | date: "%B %-d, %Y" }}</div>
+              </div>
+              <span>→</span>
+            </a>
+            {% assign related_count = related_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% if related_count == 0 %}
+          <div class="related-empty">Related writings will appear here as this subtopic grows.</div>
+        {% endif %}
+      </div>
+    </section>
+  </div>
+
+  {% if page.toc %}
+    <aside class="toc-shell" data-toc-container>
+      <div class="toc-title">Contents</div>
+      <nav data-generated-toc></nav>
+    </aside>
+  {% endif %}
+</article>

@@ -1,0 +1,8 @@
+<article class="container note-layout">
+  <div class="eyebrow">Match Note</div>
+  <h1>{{ page.title }}</h1>
+  {% include metadata.html date=page.date tags=page.tags reading_time=page.reading_time section='Match Notes' %}
+  <div class="writing-body note-body">
+    {{ content }}
+  </div>
+</article>

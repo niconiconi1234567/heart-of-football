@@ -1,0 +1,15 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="eyebrow">{{ site.title }}</div>
+      <p class="footer-copy">{{ site.data.site_meta.footer_line }}</p>
+      <p class="footer-meta">© {{ 'now' | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+    </div>
+
+    <div class="footer-contact">
+      <a href="mailto:{{ site.data.site_meta.contact_email }}">{{ site.data.site_meta.contact_email }}</a>
+      <a href="{{ site.data.site_meta.academic_website }}" target="_blank" rel="noopener">Academic Website</a>
+      <p>{{ site.data.site_meta.welcome_line }}</p>
+    </div>
+  </div>
+</footer>

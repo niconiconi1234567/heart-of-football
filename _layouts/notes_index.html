@@ -1,0 +1,25 @@
+<section class="container page-hero page-hero-narrow">
+  <div class="eyebrow">Match Notes</div>
+  <h1>{{ page.title }}</h1>
+  <p class="page-intro">{{ page.intro }}</p>
+</section>
+
+<section class="container notes-list-page">
+  {% assign notes = site.notes | sort: 'date' | reverse %}
+  {% for note in notes %}
+    <article class="note-card">
+      <div class="note-card-top">
+        <div>
+          <h2><a href="{{ note.url | relative_url }}">{{ note.title }}</a></h2>
+          <div class="note-date">{{ note.date | date: "%B %-d, %Y" }}</div>
+        </div>
+        <div class="tag-row">
+          {% for tag in note.tags %}
+            <span class="tag-chip">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      {% if note.excerpt %}<p>{{ note.excerpt }}</p>{% endif %}
+    </article>
+  {% endfor %}
+</section>

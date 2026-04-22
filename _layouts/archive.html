@@ -1,0 +1,25 @@
+<section class="container page-hero page-hero-narrow">
+  <div class="eyebrow">Archive</div>
+  <h1>{{ page.title }}</h1>
+  <p class="page-intro">{{ page.intro }}</p>
+</section>
+
+<section class="container archive-page">
+  {% assign archive_years = site.writings | sort: 'date' | reverse | group_by_exp: 'item', 'item.date | date: "%Y"' %}
+  {% for year in archive_years %}
+    <div class="archive-year-block">
+      <h2>{{ year.name }}</h2>
+      <div class="archive-year-list">
+        {% for item in year.items %}
+          <article class="archive-item">
+            <div>
+              <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+              <div class="archive-date">{{ item.date | date: "%Y.%m.%d" }}</div>
+            </div>
+            <span class="archive-type">{{ item.type_label }}</span>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</section>

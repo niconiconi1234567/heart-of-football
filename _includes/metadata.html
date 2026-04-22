@@ -1,0 +1,14 @@
+<div class="post-metadata">
+  {% if include.date %}
+    <span>{{ include.date | date: "%B %-d, %Y" }}</span>
+  {% endif %}
+  {% if include.section %}
+    <span>{{ include.section }}</span>
+  {% endif %}
+  {% if include.tags %}
+    <span>{{ include.tags | join: ', ' }}</span>
+  {% endif %}
+  {% if include.reading_time %}
+    <span>{{ include.reading_time }}</span>
+  {% endif %}
+</div>

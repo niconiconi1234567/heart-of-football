@@ -1,0 +1,9 @@
+{% assign graphic = include.graphic | default: 'grid' %}
+<a class="section-card" href="{{ include.url | relative_url }}">
+  <div class="symbolic-graphic symbolic-{{ graphic }}" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="section-card-arrow">→</div>
+  <h3>{{ include.title }}</h3>
+  <p>{{ include.description }}</p>
+</a>

@@ -1,0 +1,12 @@
+- title: Archive
+  url: /archive/
+  description: "Older work, grouped by year and by type, kept as part of a growing record."
+  graphic: nodes
+- title: About
+  url: /about/
+  description: "Who I am, why football matters to me, and why this site needed to exist."
+  graphic: arrows
+- title: My Football Footprint
+  url: /my-football-footprint/
+  description: "Stadiums, memories, places, and milestones in my own football journey."
+  graphic: grid

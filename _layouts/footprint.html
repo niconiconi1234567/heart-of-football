@@ -1,0 +1,22 @@
+<section class="container page-hero page-hero-narrow">
+  <div class="eyebrow">My Football Footprint</div>
+  <h1>{{ page.title }}</h1>
+  <p class="page-intro">{{ page.intro }}</p>
+</section>
+
+<section class="container footprint-grid">
+  <div class="footprint-card">
+    <div class="section-headline">Places</div>
+    <h2>Stadiums, cities, and traces</h2>
+    <div class="footprint-content">
+      {{ page.places | markdownify }}
+    </div>
+  </div>
+  <div class="footprint-card">
+    <div class="section-headline">Milestones</div>
+    <h2>Moments that stayed</h2>
+    <div class="footprint-content">
+      {{ page.milestones | markdownify }}
+    </div>
+  </div>
+</section>

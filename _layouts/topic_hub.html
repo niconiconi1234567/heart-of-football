@@ -1,0 +1,23 @@
+{% assign hub = site.data.topic_hubs[page.hub_key] %}
+<section class="container page-hero page-hero-narrow">
+  <div class="eyebrow">Topic Page</div>
+  <h1>{{ hub.title }}</h1>
+  <p class="page-intro">{{ page.intro | default: hub.intro }}</p>
+</section>
+
+<section class="container topic-grid">
+  {% for sub in hub.subtopics %}
+    <a class="topic-block" href="{{ page.url | append: sub.key | append: '/' | relative_url }}">
+      <div class="topic-block-kicker">Subtopic {{ forloop.index }}</div>
+      <h2>{{ sub.title }}</h2>
+      <p>{{ sub.description }}</p>
+      <div class="topic-enter">Enter this subtopic</div>
+    </a>
+  {% endfor %}
+</section>
+
+{% if content and content != '' %}
+<section class="container page-note">
+  {{ content }}
+</section>
+{% endif %}

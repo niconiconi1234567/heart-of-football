@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img class="brand-logo" src="{{ site.logo | relative_url }}" alt="{{ site.title }} logo">
+      <span class="brand-copy">
+        <span class="brand-title">{{ site.title | upcase }}</span>
+        <span class="brand-subtitle">{{ site.data.site_meta.site_subtitle }}</span>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Toggle menu" data-menu-toggle>
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="header-right" data-menu-panel>
+      <nav class="site-nav" aria-label="Primary">
+        {% for item in site.data.navigation %}
+          <a href="{{ item.url | relative_url }}" class="nav-link{% if page.url == item.url or page.url contains item.url and item.url != '/' %} active{% endif %}">{{ item.title }}</a>
+        {% endfor %}
+      </nav>
+
+      <div class="search-shell" data-search-root data-search-url="{{ '/search.json' | relative_url }}">
+        <label class="search-label" for="site-search">Search</label>
+        <input id="site-search" type="search" class="site-search" placeholder="Search" autocomplete="off" data-search-input>
+        <div class="search-results" data-search-results hidden></div>
+      </div>
+    </div>
+  </div>
+</header>

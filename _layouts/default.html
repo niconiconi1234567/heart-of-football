@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="{{ site.language | default: 'en' }}">
+  <head>
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    {% include head.html %}
+  </head>
+  <body>
+    {% include header.html %}
+    {% include breadcrumbs.html %}
+    <main class="site-main">
+      {{ content }}
+    </main>
+    {% include footer.html %}
+  </body>
+</html>

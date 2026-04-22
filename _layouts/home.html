@@ -1,0 +1,65 @@
+<section class="hero">
+  <div class="container hero-inner">
+    <img class="hero-logo" src="{{ site.logo | relative_url }}" alt="{{ site.title }} logo">
+    <h1>{{ site.title }}</h1>
+    <p class="hero-subtitle">{{ site.data.site_meta.site_subtitle }}</p>
+    <p class="hero-manifesto">{{ site.data.site_meta.hero_manifesto }}</p>
+    <p class="hero-intro">{{ site.data.site_meta.hero_intro }}</p>
+  </div>
+</section>
+
+<section class="container home-sections">
+  <div class="section-headline">Primary Sections</div>
+  <div class="card-grid card-grid-primary">
+    {% for pair in site.data.topic_hubs %}
+      {% assign key = pair[0] %}
+      {% assign hub = pair[1] %}
+      {% if hub.primary %}
+        {% assign url = '/' | append: key | append: '/' %}
+        {% include section-card.html title=hub.title description=hub.card_description url=url graphic='grid' %}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="section-headline secondary-headline">Secondary Sections</div>
+  <div class="card-grid card-grid-secondary">
+    {% for card in site.data.secondary_cards %}
+      {% include section-card.html title=card.title description=card.description url=card.url graphic=card.graphic %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="container home-columns">
+  <div>
+    <div class="section-headline">Featured Writings</div>
+    <h2 class="section-title">Handpicked entry points</h2>
+    <div class="feature-list">
+      {% assign featured = site.writings | where: 'featured', true | sort: 'featured_order' %}
+      {% for item in featured limit: 3 %}
+        <article class="feature-card">
+          {% include metadata.html date=item.date section=item.section_title reading_time=item.reading_time %}
+          <h3><a href="{{ item.url | relative_url }}">{{ item.title }}</a></h3>
+          <p>{{ item.excerpt }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div>
+    <div class="section-headline">Latest Notes</div>
+    <div class="notes-stack">
+      {% assign latest_notes = site.notes | sort: 'date' | reverse %}
+      {% for note in latest_notes limit: 4 %}
+        <article class="note-card compact-note-card">
+          <h3><a href="{{ note.url | relative_url }}">{{ note.title }}</a></h3>
+          <div class="note-date">{{ note.date | date: "%B %-d, %Y" }}</div>
+          <div class="tag-row">
+            {% for tag in note.tags %}
+              <span class="tag-chip">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

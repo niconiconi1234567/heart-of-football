@@ -1,0 +1,56 @@
+vision-philosophy:
+  title: "Vision & Philosophy"
+  card_description: "A space for football as thought, conflict, order, and a way of understanding the world."
+  intro: "A space for thinking about football through control, conflict, collective order, and the broader meanings that the game can carry."
+  primary: true
+  subtopics:
+    - key: reading-football-through-control
+      title: "Reading Football Through Control"
+      description: "How control theory opens one possible language for understanding football as a dynamic system."
+    - key: decision-conflict-and-strategy
+      title: "Decision, Conflict, and Strategy"
+      description: "How choice, opposition, and strategic interaction shape the logic of the game."
+    - key: coordination-structure-and-collective-order
+      title: "Coordination, Structure, and Collective Order"
+      description: "How football becomes a coordinated collective rather than a collection of isolated individuals."
+    - key: football-as-a-way-of-understanding-the-world
+      title: "Football as a Way of Understanding the World"
+      description: "Why football can be read not only as a sport, but also as a reflection of larger human realities."
+
+my-love:
+  title: "My Love"
+  card_description: "Mourinho, Chelsea, memory, and the parts of football that remain personal and lasting."
+  intro: "The more personal heart of the site: Mourinho, Chelsea, players, memory, and the parts of football that stay with me."
+  primary: true
+  subtopics:
+    - key: why-mourinho-matters
+      title: "Why Mourinho Matters"
+      description: "A place for writing about Mourinho’s meaning, methods, discipline, and lasting influence."
+    - key: my-chelsea
+      title: "My Chelsea"
+      description: "Chelsea as memory, attachment, and a changing tactical and emotional home."
+    - key: players-roles-and-memory
+      title: "Players, Roles, and Memory"
+      description: "How players, responsibilities, and eras become part of how football is remembered."
+    - key: why-football-stays-with-me
+      title: "Why Football Stays with Me"
+      description: "Reflections on why football remains meaningful long after particular matches are over."
+
+models-systems:
+  title: "Models & Systems"
+  card_description: "From dynamics to control and style, a layered attempt to model football as a system."
+  intro: "A structured attempt to move from dynamics, to properties, to control, and finally to style and coaching influence."
+  primary: true
+  subtopics:
+    - key: dynamics-of-the-game
+      title: "Dynamics of the Game"
+      description: "Describing how the system moves before trying to control or optimize it."
+    - key: structure-stability-and-constraints
+      title: "Structure, Stability, and Constraints"
+      description: "The forms, limits, and organizing properties that shape football as a collective system."
+    - key: control-coordination-and-collective-behavior
+      title: "Control, Coordination, and Collective Behavior"
+      description: "How intervention, tasking, and cooperation create organized collective action."
+    - key: objectives-style-and-coaching-influence
+      title: "Objectives, Style, and Coaching Influence"
+      description: "How goals, priorities, and managerial choices shape what the system becomes."
