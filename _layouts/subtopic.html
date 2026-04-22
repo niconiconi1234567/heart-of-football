@@ -1,3 +1,6 @@
+---
+layout: default
+---
 {% assign hub = site.data.topic_hubs[page.hub_key] %}
 {% assign subtopic = hub.subtopics | where: 'key', page.subtopic_key | first %}
 {% assign entries = site.writings | where: 'hub_key', page.hub_key | where: 'subtopic_key', page.subtopic_key | sort: 'concept_order' %}
