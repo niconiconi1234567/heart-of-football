@@ -114,3 +114,5 @@ bundle exec jekyll serve
 ```
 
 Then open the local address shown in the terminal.
+
+Trigger deploy
