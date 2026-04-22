@@ -1,0 +1,38 @@
+---
+layout: null
+permalink: /search.json
+---
+[
+  {% assign items_written = 0 %}
+  {% for p in site.pages %}
+    {% unless p.search_exclude or p.url == '/search.json' %}
+      {% if items_written > 0 %},{% endif %}
+      {
+        "title": {{ p.title | default: '' | jsonify }},
+        "url": {{ p.url | relative_url | jsonify }},
+        "type": {{ p.search_type | default: 'Page' | jsonify }},
+        "description": {{ p.search_description | default: p.intro | default: '' | strip_html | normalize_whitespace | jsonify }},
+        "tags": {{ p.tags | default: empty | jsonify }}
+      }
+      {% assign items_written = items_written | plus: 1 %}
+    {% endunless %}
+  {% endfor %}
+  {% for item in site.writings %}
+    ,{
+      "title": {{ item.title | jsonify }},
+      "url": {{ item.url | relative_url | jsonify }},
+      "type": "Writing",
+      "description": {{ item.excerpt | default: '' | strip_html | normalize_whitespace | jsonify }},
+      "tags": {{ item.tags | default: empty | jsonify }}
+    }
+  {% endfor %}
+  {% for note in site.notes %}
+    ,{
+      "title": {{ note.title | jsonify }},
+      "url": {{ note.url | relative_url | jsonify }},
+      "type": "Match Note",
+      "description": {{ note.excerpt | default: '' | strip_html | normalize_whitespace | jsonify }},
+      "tags": {{ note.tags | default: empty | jsonify }}
+    }
+  {% endfor %}
+]
